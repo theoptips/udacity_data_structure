@@ -38,6 +38,7 @@ def find_files(suffix, path):
 	prefix = ""
 
 	#def find_files_r(Q)
+	#"super important to call Q.size() not Q.size in while loop, else NoneType error"
 
 	while Q.size() != 0: #extremely important to include.size() the ()
 		current_path = Q.dequeue()
