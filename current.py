@@ -43,7 +43,9 @@ def find_files(suffix, path):
 	while Q.size() != 0: #extremely important to include.size() the ()
 		current_path = Q.dequeue()
 		if os.path.isfile(current_path):
-			if current_path.endswith(suffix):
+			if suffix == "*":
+				result.append(current_path)
+			elif current_path.endswith(suffix):
 				result.append(current_path)
 		if os.path.isdir(current_path):
 				candidates = os.listdir(current_path)
@@ -73,9 +75,11 @@ test = Queue.Queue()
 print(find_files('.c', './testdir'))
 print(find_files('.h', './testdir'))
 print(find_files('.gitkeep', './testdir'))
+print(find_files('*', './testdir'))
 
 assert find_files('', './testdir') == ""
 assert find_files('.c', '') ==""
 assert len(find_files('.c', './testdir').split("\n")) == 4
 assert len(find_files('.h', './testdir').split("\n")) == 4
 assert len(find_files('.gitkeep', './testdir').split("\n")) == 2
+assert len(find_files('*','./testdir').split("\n"))==10
