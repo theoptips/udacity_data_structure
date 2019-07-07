@@ -73,9 +73,9 @@ def find_files(suffix, path):
 
 test = Queue.Queue()
 print(find_files('.c', './testdir'))
-print(find_files('.h', './testdir'))
-print(find_files('.gitkeep', './testdir'))
-print(find_files('*', './testdir'))
+#print(find_files('.h', './testdir'))
+#print(find_files('.gitkeep', './testdir'))
+#print(find_files('*', './testdir'))
 
 assert find_files('', './testdir') == ""
 assert find_files('.c', '') ==""
